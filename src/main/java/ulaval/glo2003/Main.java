@@ -11,7 +11,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         ResourceConfig resourceConfig = new ResourceConfig();
+        RootControler rootControler = new RootControler() ;
         URI uri = URI.create("http://localhost:8080/");
+        resourceConfig.register(rootControler) ;
 
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, resourceConfig);
         server.start();
